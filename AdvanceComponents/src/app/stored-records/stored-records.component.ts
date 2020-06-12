@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-stored-records',
   templateUrl: './stored-records.component.html',
-  styleUrls: ['./stored-records.component.css']
+  styleUrls: ['./stored-records.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StoredRecordsComponent implements OnInit {
 EmployeeRecords=[];
@@ -16,4 +17,5 @@ EmployeeRecords=[];
   ngOnInit() {
   }
 
+  
 }

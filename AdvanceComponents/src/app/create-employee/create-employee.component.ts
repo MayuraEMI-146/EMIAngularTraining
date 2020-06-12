@@ -1,11 +1,12 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Employee } from '../employee';
 import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
-  styleUrls: ['./create-employee.component.css']
+  styleUrls: ['./create-employee.component.css'],
+  
 })
 export class CreateEmployeeComponent implements OnInit {
 
