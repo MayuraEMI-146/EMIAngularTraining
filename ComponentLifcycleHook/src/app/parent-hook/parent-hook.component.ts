@@ -11,7 +11,7 @@ export class ParentHookComponent implements OnInit {
     name: 'Mayura',
     location: 'Bangalore'
   };
-ShowChild=true;
+ShowChild = true;
 counter = 0;
 increment() {
     this.counter++;
@@ -23,6 +23,7 @@ decrement() {
 constructor() { }
 
 ngOnInit() {
+  console.log('PARENT INIT');
   }
 
   UpdateDetails() {
@@ -33,7 +34,10 @@ ngOnInit() {
     };
   }
 
-  Hidshow(){
-    this.ShowChild=!this.ShowChild;
+  Hidshow() {
+    this.ShowChild = !this.ShowChild;
+  }
+  ngAfterViewInit() {
+    console.log('5. PARENT get executed after ngAfterContentChecked => AfterViewInit ');
   }
 }

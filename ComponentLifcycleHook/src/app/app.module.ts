@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ParentHookComponent } from './parent-hook/parent-hook.component';
 import { ChildHookComponent } from './child-hook/child-hook.component';
+import { DemoParentComponent } from './demo-parent/demo-parent.component';
+import { DemoChildComponent } from './demo-child/demo-child.component';
+import { ChangeColorDirective } from './change-color.directive';
 
 
 
@@ -12,7 +15,10 @@ import { ChildHookComponent } from './child-hook/child-hook.component';
   declarations: [
     AppComponent,
     ParentHookComponent,
-    ChildHookComponent
+    ChildHookComponent,
+    DemoParentComponent,
+    DemoChildComponent,
+    ChangeColorDirective
 
 
   ],

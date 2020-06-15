@@ -26,7 +26,7 @@ FirstChange: boolean;
   //   this.FirstChange = changes.newValue.firstChange;
   // }
   ngOnInit() {
-    console.log('2.I get execute once in a lifeCylce=>ONNIT', this.newValue);
+    console.log('2.I CHILD get execute once in a lifeCylce=>ONNIT', this.newValue);
   }
   ngAfterContentChecked() {
     console.log(' 4.I get executed after AfterContent Init =>ContentChecked');
