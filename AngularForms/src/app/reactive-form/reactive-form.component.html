@@ -1,77 +1,126 @@
 <p>reactive-form works!</p>
-<div class ="container">
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <label>Name</label>
-        <input formControlName="name"
-            id="name"
-            type="text"
-            class="form-control">
+<div class="container">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input formControlName="name" id="name" type="text" class="form-control" />
 
-<div *ngIf="this.signupForm.controls.name.touched && this.signupForm.controls.name.invalid" class="alert alert-danger">
-
-
-<div *ngIf="this.signupForm.controls.name.errors.required">
-    Please specify the Name
-</div>
-<div *ngIf="this.signupForm.controls.name.errors.minlength">
-    Name should have atleast 3 characters
-</div>
-</div>
-<div class="form-group">
-    <label for="email">Email</label>
-    <input 
+    <div
+      *ngIf="
+        this.signupForm.controls.name.touched &&
+        this.signupForm.controls.name.invalid
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="this.signupForm.controls.name.errors.required">
+        Please specify the Name
+      </div>
+      <div *ngIf="this.signupForm.controls.name.errors.minlength">
+        Name should have atleast 3 characters
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
         formControlName="email"
-        id="email" 
-        type="text" 
-        class="form-control">
-    <div *ngIf="this.signupForm.controls.email.touched && this.signupForm.controls.email.invalid" class="alert alert-danger">
-        <div *ngIf="this.signupForm.controls.email.errors.required">Email is required.</div>
-        <div *ngIf="this.signupForm.controls.email.errors.email">Please, enter valid email address.</div>
+        id="email"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          this.signupForm.controls.email.touched &&
+          this.signupForm.controls.email.invalid
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="this.signupForm.controls.email.errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="this.signupForm.controls.email.errors.email">
+          Please, enter valid email address.
+        </div>
+      </div>
     </div>
-</div>
 
-<div class="form-group">
-    <label for="username">UserName</label>
-    <input 
+    <div class="form-group">
+      <label for="username">UserName</label>
+      <input
         formControlName="username"
-        id="user" 
-        type="text" 
-        class="form-control">
-   
-    <div *ngIf="this.signupForm.controls.username.touched && this.signupForm.controls.username.invalid" class="alert alert-danger">
-        <div *ngIf="this.signupForm.controls.username.errors.required">UserName is required.</div>
-        <!-- <div *ngIf="this.form.controls.username.errors.email">Please, enter valid email address.</div> -->
+        id="user"
+        type="text"
+        class="form-control"
+      />
+
+      <div
+        *ngIf="
+          this.signupForm.controls.username.touched &&
+          this.signupForm.controls.username.invalid
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="this.signupForm.controls.username.errors.required">
+          UserName is required.
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            this.signupForm.controls.username.touched &&
+            this.signupForm.controls.username.errors?.userNameNotAvailable
+          "
+        >
+          USer Not available
+        </div>
+      </div>
     </div>
 
-
-</div>
-<div class="form-group">
-    <label for="password">Password</label>
-    <input 
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
         formControlName="password"
-        id="password" 
-        type="password" 
-        class="form-control">
-    <div *ngIf="this.signupForm.controls.password.touched && this.signupForm.controls.password.invalid" class="alert alert-danger">
-        <div *ngIf="this.signupForm.controls.password.errors.required">password is required.</div>
-        <div *ngIf="this.signupForm.controls.password.errors.pattern">password should contain 8 characters with atleast one upper and lowercase and a number</div>
+        id="password"
+        type="password"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          this.signupForm.controls.password.touched &&
+          this.signupForm.controls.password.invalid
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="this.signupForm.controls.password.errors.required">
+          password is required.
+        </div>
+        <div *ngIf="this.signupForm.controls.password.errors.pattern">
+          password should contain 8 characters with atleast one upper and
+          lowercase and a number
+        </div>
+      </div>
     </div>
-</div>
-<div class="form-group">
-    <label for="password">Confirm Password</label>
-    <input 
+    <div class="form-group">
+      <label for="password">Confirm Password</label>
+      <input
         formControlName="confirmPassword"
-        id="password" 
-        type="password" 
-        class="form-control">
-    <div *ngIf="this.signupForm.controls.confirmPassword.touched && this.signupForm.controls.confirmPassword.invalid" class="alert alert-danger">
-        <div *ngIf="this.signupForm.controls.confirmPassword.errors.required">password is required.</div>
+        id="password"
+        type="password"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          this.signupForm.controls.confirmPassword.touched &&
+          this.signupForm.controls.confirmPassword.invalid
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="this.signupForm.controls.confirmPassword.errors.required">
+          password is required.
+        </div>
         <div *ngIf="this.signupForm.controls.confirmPassword.errors.pattern">
-            
-                                Passwords doesnot match">password should contain 8 characters with atleast one upper and lowercase and a number</div>
-
-</div>
-</div>
-</form>
-<button class="btn btn-primary" type="submit">Submit</button>
+          Passwords doesnot match">password should contain 8 characters with
+          atleast one upper and lowercase and a number
+        </div>
+      </div>
+    </div>
+  </form>
+  <button class="btn btn-primary" type="submit">Submit</button>
 </div>
