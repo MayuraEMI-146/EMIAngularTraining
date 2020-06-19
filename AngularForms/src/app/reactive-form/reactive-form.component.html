@@ -23,7 +23,7 @@
       <input
         formControlName="email"
         id="email"
-        type="text"
+        type="email"
         class="form-control"
       />
       <div
@@ -115,12 +115,21 @@
         <div *ngIf="this.signupForm.controls.confirmPassword.errors.required">
           password is required.
         </div>
-        <div *ngIf="this.signupForm.controls.confirmPassword.errors.pattern">
-          Passwords does not match">password should contain 8 characters with
-          atleast one upper and lowercase and a number
+        <div
+          *ngIf="
+            this.signupForm.controls.confirmPassword.errors.passwordMisMatch
+          "
+        >
+          Passowrd and Confirm Password Does not Match
         </div>
       </div>
     </div>
+    <button class="btn btn-primary" type="submit">
+      Submit
+    </button>
   </form>
-  <button class="btn btn-primary" type="submit">Submit</button>
+  <hr />
+  <button class="btn btn-primary" type="submit" (click)="Onreset()">
+    Reset
+  </button>
 </div>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { CustomValidationService } from "../custom-validation.service";
+import { Component, OnInit, OnChanges } from "@angular/core";
+import { FormGroup, Validators, FormBuilder } from "@angular/forms";
+import { CustomValidatorService } from "../custom-validator.service";
 
 @Component({
   selector: "app-reactive-form",
@@ -9,31 +9,52 @@ import { CustomValidationService } from "../custom-validation.service";
 })
 export class ReactiveFormComponent implements OnInit {
   signupForm: FormGroup;
-  constructor(private service: CustomValidationService) {}
+  Submitted = false;
+  events: any;
+  constructor(
+    private service: CustomValidatorService,
+    private formbuilder: FormBuilder
+  ) {}
 
   ngOnInit() {
-    this.signupForm = new FormGroup({
-      name: new FormControl("Mayura", [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      email: new FormControl("", [Validators.required, Validators.email]),
-      username: new FormControl(
-        "",
-        [Validators.required],
-        this.service.UserNameValidation.bind(this.service)
-      ),
-      password: new FormControl("", [
-        Validators.required,
-        Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$"),
-      ]),
-      confirmPassword: new FormControl("", [Validators.required]),
+    this.signupForm = this.formbuilder.group(
+      {
+        name: ["", [Validators.required, Validators.minLength(3)]],
+        email: ["", [Validators.required, Validators.email]],
+        username: ["", Validators.required],
+        password: [
+          "",
+          [
+            Validators.required,
+            Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$"),
+          ],
+        ],
+        confirmPassword: ["", Validators.required],
+      },
+      {
+        validator: this.service.MustMatch("password", "confirmPassword"),
+      }
+    );
+
+    this.signupForm.get("name").valueChanges.subscribe((uname) => {
+      console.log(uname);
+    });
+    // this.signupForm.controls["name"].setValue("SSS", { eventEmit: false });
+    this.signupForm.get("name").setValue("", { eventEmit: false });
+    this.signupForm.get("name").statusChanges.subscribe((status) => {
+      console.log("Name Status is ", status);
     });
   }
 
   onSubmit() {
+    this.Submitted = true;
+    alert("Submitted");
     if (this.signupForm.valid) {
       console.table(this.signupForm.value);
     }
+  }
+
+  Onreset() {
+    this.signupForm.reset();
   }
 }
