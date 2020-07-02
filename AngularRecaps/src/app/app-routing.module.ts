@@ -6,6 +6,13 @@ import { AboutUsComponent } from "./Features/about-us/about-us.component";
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "aboutus", component: AboutUsComponent },
+  {
+    path: "employee",
+    loadChildren: () =>
+      import(
+        "./Features/Employees/employee-module/employee-module.module"
+      ).then((e) => e.EmployeeModuleModule),
+  },
 ];
 
 @NgModule({
