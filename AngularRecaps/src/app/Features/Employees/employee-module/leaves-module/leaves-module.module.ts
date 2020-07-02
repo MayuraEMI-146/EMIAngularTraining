@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { LeavesModuleRoutingModule } from './leaves-module-routing.module';
-import { LeavesComponent } from './leaves/leaves.component';
-
+import { LeavesModuleRoutingModule } from "./leaves-module-routing.module";
+import { LeavesComponent } from "./leaves/leaves.component";
 
 @NgModule({
   declarations: [LeavesComponent],
-  imports: [
-    CommonModule,
-    LeavesModuleRoutingModule
-  ]
+  imports: [CommonModule, LeavesModuleRoutingModule],
 })
-export class LeavesModuleModule { }
+export class LeavesModuleModule {
+  constructor() {
+    console.log("Leaves Module Loaded!!");
+  }
+}
