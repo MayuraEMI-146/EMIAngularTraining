@@ -12,6 +12,8 @@ import { AboutUsComponent } from "./Features/about-us/about-us.component";
 
 import { RegisterComponent } from "./Features/register/register.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MenuComponent } from './menu/menu.component';
+import { ModalFormComponent } from './modal-form/modal-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +22,13 @@ import { ReactiveFormsModule } from "@angular/forms";
     AboutUsComponent,
     
     RegisterComponent,
+    
+    MenuComponent,
+    
+    ModalFormComponent,
    
   ],
+  entryComponents:[ModalFormComponent],
 
   imports: [
     BrowserModule,
@@ -31,7 +38,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     MaterialModule,
     ReactiveFormsModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+// Injectable
+// Inject
+//Injector

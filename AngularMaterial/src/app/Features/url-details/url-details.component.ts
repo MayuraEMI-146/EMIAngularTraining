@@ -1,13 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { IUrlLink } from '../urlink';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material';
+import { ModalFormComponent } from 'src/app/modal-form/modal-form.component';
+import { ProductService } from 'src/app/product.service';
 
 
 @Component({
   selector: 'app-url-details',
   templateUrl: './url-details.component.html',
   styleUrls: ['./url-details.component.css'],
+  
 })
 export class UrlDetailsComponent implements OnInit {
   title = 'Angular Material Session!!';
@@ -17,7 +21,7 @@ export class UrlDetailsComponent implements OnInit {
   public urlLinks: IUrlLink[];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   public displayedColumns: string[] = ['id', 'from', 'to', 'dateCreated', 'permanentLink'];
-  constructor() {
+  constructor(@Inject(ProductService)private product, public dialog: MatDialog) {
    // step 3
     this.urlLinks = [
       {
@@ -77,6 +81,10 @@ export class UrlDetailsComponent implements OnInit {
         permanentLink: true,
       },
     ];
+    if (localStorage.getItem('storedLinks'))
+    {
+      this.urlLinks = JSON.parse(localStorage.getItem('storedLinks'));
+     }
 
   }
 // step 5
@@ -86,8 +94,25 @@ export class UrlDetailsComponent implements OnInit {
   }
 // step 4
   private bindDataSource(urlLinks: IUrlLink[]) {
-    this.dataSource = new MatTableDataSource<IUrlLink>(this.urlLinks);
+    this.dataSource = new MatTableDataSource<IUrlLink>(urlLinks);
   }
 
+  public openDialog(): void{
+    const dialogref = this.dialog.open(ModalFormComponent, {
+   //   width:'650px',
+      disableClose: false
+    });
+    dialogref.afterClosed().subscribe((r) => {
+      this.urlLinks.push(Object.assign({}, r));
+      console.log(this.urlLinks);
+      this.bindDataSource(this.urlLinks);
+      localStorage.setItem('storedLinks', JSON.stringify(this.urlLinks));
+    });
+  }
   }
 
+
+
+  /// Consumer:Component
+  //Dependency: Service:,Direcitive,Pipe
+  // Provider:
