@@ -1,0 +1,81 @@
+{
+  "Employee": [
+    {
+      "id": 1,
+      "name": "Mayura",
+      "designation": "Trainer",
+      "department": "Soft Eng",
+      "Gender": "Female"
+    },
+    {
+      "id": 2,
+      "name": "Sam",
+      "designation": "HR Manager",
+      "department": "Human Resource",
+      "Gender": "Male"
+    },
+    {
+      "id": 3,
+      "name": "James",
+      "designation": "Escalation Manager",
+      "department": "Support",
+      "Gender": "Male"
+    },
+    {
+      "id": 4,
+      "name": "Smitha",
+      "designation": "Data Testing Engineer",
+      "department": "DTS",
+      "Gender": "Female"
+    },
+    {
+      "id": 5,
+      "name": "Swathi",
+      "designation": "Tech Lead",
+      "department": "Soft Eng",
+      "Gender": "Female"
+    },
+    {
+      "id": 6,
+      "name": "Swathi",
+      "designation": "Tech Lead",
+      "department": "Soft Eng",
+      "Gender": "Female"
+    },
+    {
+      "name": "Mayura",
+      "designation": "Trainer",
+      "department": "Technology",
+      "Gender": "Female",
+      "id": 7
+    },
+    {
+      "name": "John",
+      "designation": "HR Manager",
+      "department": "HR",
+      "Gender": "Male",
+      "id": 8
+    },
+    {
+      "name": "ddsf",
+      "designation": "fddsf",
+      "department": "fdsf",
+      "Gender": "male",
+      "id": 9
+    },
+    {
+      "name": "erewr",
+      "designation": "rewewr",
+      "department": "ewrewr",
+      "Gender": "male",
+      "id": 10
+    },
+    {
+      "name": "hgfh",
+      "designation": "hgfh",
+      "department": "hgfh",
+      "Gender": "male",
+      "id": 11
+    }
+  ]
+}
