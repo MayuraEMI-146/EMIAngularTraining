@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
 import { Employee } from './employee';
 import { catchError } from 'rxjs/operators';
 const httpOptions = {
@@ -14,6 +14,7 @@ const baseUrl = 'http://localhost:3000/Employee';
 
 export class EmployeeService {
 
+  
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log(error);
@@ -23,7 +24,7 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
   getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(baseUrl).pipe(catchError(this.handleError('getEmployees', [])));
+    return this.http.get<Employee[]>(baseUrl).pipe(catchError(this.handleError));
   }
 
   getEmployeeById(id: number): Observable<Employee> {
@@ -34,12 +35,14 @@ export class EmployeeService {
     return this.http.post<Employee>(baseUrl, emp);
   }
 
+  deleteEmployee(id): Observable<Employee> {
+    const url = `${baseUrl}/${id}`;
+    return this.http.delete<Employee>(url).
+      pipe(catchError(this.handleError));
+  }
 }
 
 
-// employee
-//employeList
-// AddEmployee
-//employeeDetails
+
 
 

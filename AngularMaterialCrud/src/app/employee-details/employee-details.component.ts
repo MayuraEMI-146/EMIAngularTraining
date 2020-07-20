@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-details',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeDetailsComponent implements OnInit {
   emp: Employee = { id: 0, name: '', department: '', Gender: '', designation: '' };
   isDataLoading = true;
-  constructor(private empService: EmployeeService, private route: ActivatedRoute) { }
+  constructor(private empService: EmployeeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getEmployeeID(this.route.snapshot.params.id);
@@ -25,4 +25,6 @@ export class EmployeeDetailsComponent implements OnInit {
 
     });
   }
+
+  
 }
