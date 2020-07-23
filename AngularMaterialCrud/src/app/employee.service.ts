@@ -14,14 +14,24 @@ const baseUrl = 'http://localhost:3000/Employee';
 
 export class EmployeeService {
 
-  
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.log(error);
-      return of(result as T);
-    };
-  }
 
+  // private handleError<T>(operation = 'operation', result?: T) {
+  //   return (error: any): Observable<T> => {
+  //     console.log(error);
+  //     return of(result as T);
+  //   };
+  // }
+
+
+  private handleError(errorResonse: HttpErrorResponse) {
+    if (errorResonse.error instanceof ErrorEvent) {
+       console.log('Client Side Error', errorResonse.error);
+    } else {
+      console.log('Server Side Error', errorResonse.error);
+    }
+    return throwError('their is a problem in your code');
+
+  }
   constructor(private http: HttpClient) { }
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(baseUrl).pipe(catchError(this.handleError));
@@ -34,8 +44,12 @@ export class EmployeeService {
   addEmployee(emp): Observable<Employee> {
     return this.http.post<Employee>(baseUrl, emp);
   }
+  deleteEmployee(id): Observable<Employee>{
+    const url = `${baseUrl}/${id}`;
+    return this.http.delete<Employee>(url)
+      .pipe(catchError(this.handleError));
+ }
 
- 
 }
 
 

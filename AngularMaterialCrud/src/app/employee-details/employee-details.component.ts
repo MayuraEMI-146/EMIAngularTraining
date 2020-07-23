@@ -26,5 +26,14 @@ export class EmployeeDetailsComponent implements OnInit {
     });
   }
 
-
+  deleteEmployee(id) {
+    this.isDataLoading = true;
+    this.empService.deleteEmployee(id).subscribe(res => {
+      this.isDataLoading = false;
+      this.router.navigate(['/employees']);
+    }, (err) => {
+      console.log(err);
+      this.isDataLoading = false;
+    });
+  }
 }

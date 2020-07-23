@@ -15,13 +15,6 @@
       "Gender": "Male"
     },
     {
-      "id": 3,
-      "name": "James",
-      "designation": "Escalation Manager",
-      "department": "Support",
-      "Gender": "Male"
-    },
-    {
       "id": 4,
       "name": "Smitha",
       "designation": "Data Testing Engineer",
@@ -30,13 +23,6 @@
     },
     {
       "id": 5,
-      "name": "Swathi",
-      "designation": "Tech Lead",
-      "department": "Soft Eng",
-      "Gender": "Female"
-    },
-    {
-      "id": 6,
       "name": "Swathi",
       "designation": "Tech Lead",
       "department": "Soft Eng",
@@ -83,6 +69,13 @@
       "department": "rewr",
       "Gender": "male",
       "id": 12
+    },
+    {
+      "name": "dfdsf",
+      "designation": "fdsf",
+      "department": "fdsf",
+      "Gender": "male",
+      "id": 13
     }
   ]
 }
