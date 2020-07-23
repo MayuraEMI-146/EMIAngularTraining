@@ -35,11 +35,7 @@ export class EmployeeService {
     return this.http.post<Employee>(baseUrl, emp);
   }
 
-  deleteEmployee(id): Observable<Employee> {
-    const url = `${baseUrl}/${id}`;
-    return this.http.delete<Employee>(url).
-      pipe(catchError(this.handleError));
-  }
+ 
 }
 
 
