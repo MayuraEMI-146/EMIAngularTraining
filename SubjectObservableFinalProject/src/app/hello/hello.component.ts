@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DesignService } from '../design.service';
 
 @Component({
   selector: 'app-hello',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent implements OnInit {
-
-  constructor() { }
+  empName: string;
+  constructor(private design: DesignService) {
+    this.design.empName.subscribe(res => {
+      this.empName = res;
+    });
+   }
 
   ngOnInit() {
+    
   }
-
+  onChange(empname)
+  {
+    this.design.empName.next(empname.value);
+  }
 }

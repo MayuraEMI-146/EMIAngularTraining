@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DesignService } from '../design.service';
 
 @Component({
   selector: 'app-welcome',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-
-  constructor() { }
-
+  empName: string;
+  constructor(private design: DesignService) {
+    this.design.empName.subscribe(res => {
+      this.empName = res;
+    });
+   }
   ngOnInit() {
   }
 
