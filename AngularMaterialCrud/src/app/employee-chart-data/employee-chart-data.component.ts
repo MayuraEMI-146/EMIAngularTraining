@@ -31,7 +31,7 @@ export class EmployeeChartDataComponent implements OnInit {
     this.empService.getEmployees().subscribe((res: any) => {
       this.emp = res;
       this.emp.forEach((chart) => {
-        this.barChartLables.push(chart.department);
+        this.barChartLables.push(chart.name);
         chartData.push(chart.id);
         if (this.label === 'Achieved') {
           chartColor.push('rgba(255,165,0,0.5)');
