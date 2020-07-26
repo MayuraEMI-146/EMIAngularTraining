@@ -5,77 +5,49 @@
       "name": "Mayura",
       "designation": "Trainer",
       "department": "Soft Eng",
-      "Gender": "Female"
+      "Gender": "Female",
+      "sales": "Achieved"
     },
     {
-      "id": 2,
+      "id": 4,
       "name": "Sam",
       "designation": "HR Manager",
       "department": "Human Resource",
-      "Gender": "Male"
+      "Gender": "Male",
+      "sales": "NotAchieved"
+    },
+    {
+      "id": 3,
+      "name": "James",
+      "designation": "Escalation Manager",
+      "department": "Support",
+      "Gender": "Male",
+      "sales": "Achieved"
     },
     {
       "id": 4,
       "name": "Smitha",
       "designation": "Data Testing Engineer",
       "department": "DTS",
-      "Gender": "Female"
+      "Gender": "Female",
+      "sales": "Achieved"
     },
+    
     {
       "id": 5,
       "name": "Swathi",
       "designation": "Tech Lead",
       "department": "Soft Eng",
-      "Gender": "Female"
-    },
-    {
-      "name": "Mayura",
-      "designation": "Trainer",
-      "department": "Technology",
       "Gender": "Female",
-      "id": 7
+      "sales": "Achieved"
     },
     {
-      "name": "John",
-      "designation": "HR Manager",
-      "department": "HR",
+      "name": "Amit Sonar",
+      "designation": "Soft Developer",
+      "department": "Technology",
       "Gender": "Male",
-      "id": 8
-    },
-    {
-      "name": "ddsf",
-      "designation": "fddsf",
-      "department": "fdsf",
-      "Gender": "male",
-      "id": 9
-    },
-    {
-      "name": "erewr",
-      "designation": "rewewr",
-      "department": "ewrewr",
-      "Gender": "male",
-      "id": 10
-    },
-    {
-      "name": "hgfh",
-      "designation": "hgfh",
-      "department": "hgfh",
-      "Gender": "male",
-      "id": 11
-    },
-    {
-      "name": "rew",
-      "designation": "rewr",
-      "department": "rewr",
-      "Gender": "male",
-      "id": 12
-    },
-    {
-      "name": "dfdsf",
-      "designation": "fdsf",
-      "department": "fdsf",
-      "Gender": "male",
-      "id": 13
+      "sales": "Achieved",
+      "id": 6
     }
   ]
 }

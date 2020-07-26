@@ -11,6 +11,9 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeService } from './employee.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeChartDataComponent } from './employee-chart-data/employee-chart-data.component';
+import { ChartsModule } from 'ng2-charts';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmployeeComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmployeeChartDataComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule,
+    FormsModule
+
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

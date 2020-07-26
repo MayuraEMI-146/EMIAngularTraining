@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  emp: Employee = { id: 0, name: '', department: '', Gender: '', designation: '' };
+  emp: Employee = { id: 0, name: '', department: '', Gender: '', designation: '', sales: '' };
   isDataLoading = true;
   constructor(private empService: EmployeeService, private route: ActivatedRoute, private router: Router) { }
 

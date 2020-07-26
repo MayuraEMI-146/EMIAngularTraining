@@ -6,6 +6,6 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class DesignService {
   exclusive = new Subject<boolean>();
-  empName = new BehaviorSubject('John');
+  empName = new Subject<string>();
   constructor() { }
 }

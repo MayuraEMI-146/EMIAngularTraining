@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -23,7 +24,8 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonToggleModule
   ],
   exports: [
     MatInputModule,
@@ -34,7 +36,8 @@ import {
   MatIconModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonToggleModule
   ]
 })
 export class AngularMaterialModule { }
