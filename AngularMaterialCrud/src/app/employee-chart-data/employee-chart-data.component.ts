@@ -28,6 +28,7 @@ export class EmployeeChartDataComponent implements OnInit {
     this.barChartLables = [];
     const chartData: any[] = [];
     const chartColor: string[] = [];
+
     this.empService.getEmployees().subscribe((res: any) => {
       this.emp = res;
       this.emp.forEach((chart) => {
@@ -40,6 +41,7 @@ export class EmployeeChartDataComponent implements OnInit {
 
         }
       });
+
       this.barChartData = [{ data: chartData, backgroundColor: chartColor, label: this.label }];
       this.isDataLoading = false;
     }, err => {
@@ -47,9 +49,11 @@ export class EmployeeChartDataComponent implements OnInit {
         this.isDataLoading = false;
     });
   }
+
   ngOnInit() {
     this.getChart();
   }
+  
   changeStatus() {
     this.isDataLoading = true;
     this.getChart();
